@@ -3,11 +3,23 @@ var app = angular.module("Tableizer", []);
 app.controller("TextAreaController", function($scope){
   $scope.textarea = {};
   $scope.variable = $scope.textarea.text;
+  $scope.rows = [];
+  $scope.th = [];
   $scope.$watch('textarea.text', function(newValue, oldValue){
     // Initialize to blank text if values are undefined
     newValue = newValue || "";
     oldValue = oldValue || "";
-
-    console.log(newValue.split("\n"));
+    
+    var r = newValue.split("\n");
+    var h = r[0].split("\t");
+    $scope.th = h;
+    for (var i = 1; i < r.length; i++){
+      var c = r[i];
+      r[i] = c.split("\t");  
+    } 
+    
+    //console.log(r);
+    //console.log(h);
+    $scope.rows = r; 
   });
 });

@@ -64,9 +64,20 @@
       <div class="starter-template">
         <h1>Here's your table!</h1>
         <!--<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>-->
-        <div>{{variable}}</div>
+        <div>
+          
+          <table class="table-bordered table">
+            <tr> 
+              <th ng-repeat="heading in th"> {{heading}} </th> 
+            </tr>
+              
+            <tr ng-repeat="row in rows">
+              <td ng-repeat="col in row"> {{col}} </td>
+            </tr>
+          </table>
+        
+        </div>
       </div>
-
 
       
     </div><!-- /.container -->
