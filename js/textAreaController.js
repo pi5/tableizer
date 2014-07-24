@@ -13,13 +13,14 @@ app.controller("TextAreaController", function($scope){
     var r = newValue.split("\n");
     var h = r[0].split("\t");
     $scope.th = h;
+
     for (var i = 1; i < r.length; i++){
       var c = r[i];
       r[i] = c.split("\t");  
     } 
-    
-    //console.log(r);
-    //console.log(h);
+  
+    // Slice to remove table header  
+    r = r.slice(1);
     $scope.rows = r; 
   });
 });

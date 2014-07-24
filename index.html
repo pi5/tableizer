@@ -8,20 +8,16 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-    <title>Starter Template for Bootstrap</title>
+    <title>Tableizer</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrapStarterTemplate_files/bootstrap.css" rel="stylesheet">
+    <link href="template/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="bootstrapStarterTemplate_files/starter-template.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="bootstrapStarterTemplate_files/ie-emulation-modes-warning.js"></script>
+    <link href="template/starter-template.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="bootstrapStarterTemplate_files/ie10-viewport-bug-workaround.js"></script>
+    <script src="template/ie10-viewport-bug-workaround.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -71,8 +67,8 @@
               <th ng-repeat="heading in th"> {{heading}} </th> 
             </tr>
               
-            <tr ng-repeat="row in rows">
-              <td ng-repeat="col in row"> {{col}} </td>
+            <tr ng-repeat="row in rows track by $index">
+              <td ng-repeat="col in row track by $index"> {{col}} </td>
             </tr>
           </table>
         
@@ -88,8 +84,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
     <script src="js/textAreaController.js"></script>
-    <script src="bootstrapStarterTemplate_files/jquery.js"></script>
-    <script src="bootstrapStarterTemplate_files/bootstrap.js"></script>
+    <script src="template/jquery.js"></script>
+    <script src="template/bootstrap.js"></script>
   
 
 </body></html>
