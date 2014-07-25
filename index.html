@@ -42,8 +42,6 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -53,33 +51,21 @@
 
       <div class="starter-template">
         <h1>Paste Text Here</h1>
-        <!--<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>-->
-        <textarea ng-model="textarea.text"></textarea>
       </div>
-
+      
+      <div class="row">
+        <textarea ng-model="textarea.text" class="col-md-8 col-md-offset-2" rows="10"></textarea>
+      </div>
+      
       <div class="starter-template">
         <h1>Here's your table!</h1>
-        <!--<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>-->
-        <div>
-          
-          <table class="table-bordered table">
-            <tr> 
-              <th ng-repeat="heading in th"> {{heading}} </th> 
-            </tr>
-              
-            <tr ng-repeat="row in rows track by $index">
-              <td ng-repeat="col in row track by $index"> {{col}} </td>
-            </tr>
-          </table>
-        
-        </div>
+        <div id="table-container"></div>
       </div>
 
-      
     </div><!-- /.container -->
 
 
-    <!-- Bootstrap core JavaScript
+    <!-- Bootstrap and angular core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>

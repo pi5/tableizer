@@ -1,26 +1,49 @@
 var app = angular.module("Tableizer", []);
 
 app.controller("TextAreaController", function($scope){
-  $scope.textarea = {};
-  $scope.variable = $scope.textarea.text;
-  $scope.rows = [];
-  $scope.th = [];
-  $scope.$watch('textarea.text', function(newValue, oldValue){
-    // Initialize to blank text if values are undefined
-    newValue = newValue || "";
-    oldValue = oldValue || "";
-    
-    var r = newValue.split("\n");
-    var h = r[0].split("\t");
-    $scope.th = h;
+    $scope.textarea = {};
+    $scope.variable = $scope.textarea.text;
+    $scope.$watch('textarea.text', function(newValue, oldValue){
+      // Initialize to blank text if values are undefined
+      newValue = newValue || "";
+      oldValue = oldValue || "";
+      
+      //Every time on change, clear the table
+      //TODO: Optimize to reflect only changes
+      if (!!$('#main-table').length) {
+        $('#main-table').remove();
+      }
 
-    for (var i = 1; i < r.length; i++){
-      var c = r[i];
-      r[i] = c.split("\t");  
-    } 
-  
-    // Slice to remove table header  
-    r = r.slice(1);
-    $scope.rows = r; 
-  });
+      if( !!!newValue ) {
+        $('<div/>').text('No Text to create a table!')
+          .attr('id','main-table')
+          .appendTo('#table-container');
+      }
+      
+      else { 
+        var table = $('<table/>');
+        table.attr('id','main-table');
+        table.addClass('table table-striped table-bordered');
+        var r = newValue.split("\n");
+        
+        for (var i = 0; i < r.length; i++) {
+          // Create empty table row
+          var tr = $('<tr/>');
+
+          var c = r[i];
+          r[i] = c.split("\t");
+
+          // Fill table columns
+          for (var j=0; j<r[i].length; j++) {
+            var td = $('<td/>');
+            td.text(r[i][j]);
+            td.appendTo(tr);  
+          }
+          
+          tr.appendTo(table);
+        } 
+      
+        table.appendTo('#table-container');
+      }
+    });
 });
