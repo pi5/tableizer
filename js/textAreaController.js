@@ -21,9 +21,9 @@ app.controller("TextAreaController", function($scope){
       }
       
       else { 
-        var table = $('<table/>');
-        table.attr('id','main-table');
-        table.addClass('table table-striped table-bordered');
+        var table = $('<table/>')
+          .attr('id','main-table')
+          .addClass('table table-striped table-bordered text-left');
         var r = newValue.split("\n");
         
         for (var i = 0; i < r.length; i++) {
@@ -35,7 +35,13 @@ app.controller("TextAreaController", function($scope){
 
           // Fill table columns
           for (var j=0; j<r[i].length; j++) {
-            var td = $('<td/>');
+            var td;
+            if ( i === 0 ) {
+              td = $('<th/>');
+            }
+            else {
+              td = $('<td/>');
+            }
             td.text(r[i][j]);
             td.appendTo(tr);  
           }
