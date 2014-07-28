@@ -2,8 +2,7 @@ var app = angular.module("Tableizer", []);
 
 app.controller("TextAreaController", function($scope){
     $scope.textarea = {};
-    $scope.options = {};
-    $scope.options.headers = true;
+    $scope.options = getDefaults();
     $scope.variable = $scope.textarea.text;
     $scope.currentTableValue = "";
     $scope.$watch('textarea.text', function(newValue, oldValue){
@@ -36,15 +35,25 @@ app.controller("TextAreaController", function($scope){
     });
 
     // Delete and recreate table when table options are changed
-    $scope.$watch('options.headers', function(newValue, oldValue) {
+    $scope.$watch('options', function(newValue, oldValue) {
      if($scope.currentTableValue) {
        deleteTable();
        var table = createTable($scope.currentTableValue, $scope.options); 
        table.appendTo('#table-container'); 
      }
-    }); 
+    }, true); 
 
 });
+
+
+function getDefaults() {
+  return {
+    headers:true,
+    striped:false,
+    borders:false,
+    enableColors:false
+  };  
+}
 
 function deleteTable() {
   if (!!$('#main-table').length) {
@@ -55,13 +64,28 @@ function deleteTable() {
 function createTable(newValue, options) {
   var table = $('<table/>')
     .attr('id','main-table')
-    .addClass('table table-striped table-bordered text-left');
+    .addClass('table text-left');
 
+  var colors = ["active", "success", "warning", "danger", "info"];  
+  var currentColor = 0;
+
+  if (options.striped) {
+    table.addClass('table-striped');  
+  }
+
+  if (options.borders) {
+    table.addClass('table-bordered');
+  }
+  
   var r = newValue.split("\n");
 
   for (var i = 0; i < r.length; i++) {
     // Create empty table row
     var tr = $('<tr/>');
+    if (options.enableColors) {
+      tr.addClass(colors[currentColor]); 
+      currentColor = (currentColor + 1) % (colors.length - 1);
+    }
 
     var c = r[i];
     r[i] = c.split("\t");
