@@ -56,7 +56,15 @@
       <div class="row">
         <div class="col-md-2"></div>
         <textarea ng-model="textarea.text" class="col-md-8" rows="10"></textarea>
-        <div class="col-md-2"></div>
+        
+        <div class="col-md-2">
+          <h3> Table Options</h3>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" ng-model="options.headers"> Enable Table header
+            </label>
+          </div> 
+        </div>
       </div>
       
       <div class="starter-template">
