@@ -31,6 +31,9 @@ app.controller("TextAreaController", function($scope){
         if(table) {
           table.appendTo('#table-container');
         }
+         var table_elem_source = document.getElementById('main-table').outerHTML;
+         var source_ta = document.getElementById('source');
+         source_ta.value = html_beautify(table_elem_source);
       }
     });
 
@@ -38,8 +41,11 @@ app.controller("TextAreaController", function($scope){
     $scope.$watch('options', function(newValue, oldValue) {
      if($scope.currentTableValue) {
        deleteTable();
-       var table = createTable($scope.currentTableValue, $scope.options); 
+       var table = createTable($scope.currentTableValue, $scope.options);
        table.appendTo('#table-container'); 
+       var table_elem_source = document.getElementById('main-table').outerHTML;
+       var source_ta = document.getElementById('source');
+       source_ta.value = html_beautify(table_elem_source);
      }
     }, true); 
 

@@ -8,6 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
+    <script type="text/javascript" src="js/lib/beautify-html.js"></script>
     <title>Tableizer</title>
 
     <!-- Bootstrap core CSS -->
@@ -27,7 +28,6 @@
   </head>
 
   <body>
-
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -86,6 +86,14 @@
 
         </div>
       </div>
+
+      <div class="starter-template">
+        <h1>Copy your table HTML source from here</h1>
+      </div>
+      <div class="row">
+        <textarea id="source" class="col-md-8 col-md-offset-2" rows="15" > </textarea>
+        <div class="col-md-2 hidden"></div>
+      </div>
       
       <div class="starter-template">
         <h1>Here's your table!</h1>
@@ -102,6 +110,5 @@
     <script src="js/textAreaController.js"></script>
     <script src="template/jquery.js"></script>
     <script src="template/bootstrap.js"></script>
-  
 
 </body></html>
