@@ -55,8 +55,8 @@ app.controller("TextAreaController", function($scope){
 function getDefaults() {
   return {
     headers:true,
-    striped:false,
-    borders:false,
+    striped:true,
+    borders:true,
     enableColors:false
   };  
 }
