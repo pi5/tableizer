@@ -5,7 +5,10 @@ Convert copied data from MS-Excel / Open Office Calc to HTML table
 
 Inspired by http://tableizer.journalistopia.com/
 
-Go to the tabliezer folder and run:
+Try it out: http://pi5.github.io/tableizer/
+
+
+Run Locally: Go to the tabliezer folder and run:
 
 ```
 python -m SimpleHTTPServer
