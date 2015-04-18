@@ -3,9 +3,9 @@ tableizer
 
 Convert copied data from MS-Excel / Open Office Calc to HTML table
 
+Try it out: http://pi5.github.io/tableizer/
 Inspired by http://tableizer.journalistopia.com/
 
-Try it out: http://pi5.github.io/tableizer/
 
 
 Run Locally: Go to the tabliezer folder and run:
